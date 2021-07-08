@@ -65,8 +65,9 @@ __IMPORTANT:__ If you decide to change the `NETWORK_NAME` then you must change a
 ./apps/{app-1-dir}/docker
 ./apps/{app-2-dir}/docker
 ./apps/{app-3-dir}/docker
-and so on...
+./apps/...
 ```
+
 
 
 ## Available root level commands
