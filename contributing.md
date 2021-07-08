@@ -1,3 +1,7 @@
+# TODO
+- Remove the requirements for local `composer` and `wget` for setup.
+- Make it easy to change the `NETWORK_NAME` for existing apps.
+- Include more open source frameworks in the app scaffold.
 # Contributing 
 
 __We love your input!__ 
@@ -47,7 +51,3 @@ People *love* thorough bug reports. I'm not even kidding.
 
 ### License
 By contributing, you agree that your contributions will be licensed under its MIT License.
-
-# TODO
-- Make it easy to change the `NETWORK_NAME` for existing apps.
-- Include more open source frameworks in the app scaffold.
