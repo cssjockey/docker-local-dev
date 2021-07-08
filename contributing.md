@@ -1,4 +1,4 @@
-# TODO
+# Todo:
 - Remove the requirements for local `composer` and `wget` for setup.
 - Make it easy to change the `NETWORK_NAME` for existing apps.
 - Include more open source frameworks in the app scaffold.
