@@ -159,9 +159,14 @@ You can run this command to ssh into the container.
 ## Change log
 
 Please see [change log](changelog.md) for details and a todolist.
+
+## Todo:
+- Remove the requirements for local `composer` and `wget` for setup.
+- Make it easy to change the `NETWORK_NAME` for existing apps.
+- Include more open source frameworks in the app scaffold.
 ## Contributing
 
-Please see [contributing](contributing.md) for details and a todolist.
+Please see [contributing](contributing.md) for details.
 
 ## Security
 
