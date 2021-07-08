@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+echo ' REMOVING '
+./bash/list
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+docker rm -f $(docker ps -a -q)
+docker image prune
+docker container prune
+docker network prune
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+./bash/list
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'

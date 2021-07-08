@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+docker-compose up -d
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+echo ' SERVICE CONTAINERS STARTED '
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+docker ps -a --format "table {{.Names}}\t{{.Ports}}\t{{.Image}}\t{{.ID}}\t{{.Status}}"
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+echo 'Run ./bash/run-app to start the app in a container.'
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+

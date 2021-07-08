@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+service_name="$(basename -- $PWD)"
+
+echo "Specify port number for this app:"
+read LOCAL_PORT
+
+docker stop $service_name
+
+docker build -t $service_name ./
+docker kill $service_name
+docker rm $service_name
+docker run -d --name $service_name -p $LOCAL_PORT:80 -v ${PWD}:/var/www/html --network localdev $service_name:latest
+docker ps -a | grep cs-
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "${service_name} app is now running on http://0.0.0.0:${LOCAL_PORT}"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"

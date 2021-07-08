@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+rootdir=$PWD
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "Specify directory for this app:"
+# store app dir
+read appdir
+
+./bash/run
+
+# install laravel installer
+composer global require laravel/installer
+
+# create new laravel app
+mkdir apps
+cd $PWD/apps
+laravel new $appdir
+
+git init
+
+cd $rootdir
+cp -a $PWD/bash/docker/laravel/. $PWD/apps/$appdir
+
+./bash/ip
+./bash/list
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo " App is installed and ready to run in ./apps/$appdir "
+echo " You can use the above mentioned IP addresses and ports to connect to databases "
+echo " run ./docker/run to start the app container "
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+

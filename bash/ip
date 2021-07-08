@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+GATEWAY=$(docker network inspect localdev | grep -E "Gateway")
+echo ${GATEWAY//[[:blank:]]/}
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+docker network inspect localdev | grep -E "Name|IPv4Address"

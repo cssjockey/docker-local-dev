@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+service_name="$(basename -- $PWD)"
+
+docker stop $service_name
+docker ps -a | grep cs-
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "${service_name} app stopped"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"

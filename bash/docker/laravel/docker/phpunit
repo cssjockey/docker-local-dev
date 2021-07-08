@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+service_name="$(basename -- $PWD)"
+
+docker exec -it $service_name php artisan config:clear
+docker exec -it $service_name php artisan cache:clear
+docker exec -it $service_name ./vendor/bin/phpunit "$@"

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+rootdir=$PWD
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "Specify directory for this app:"
+# store app dir
+read appdir
+
+./bash/run
+
+# create new laravel app
+mkdir apps
+cd $PWD/apps
+
+# install laravel installer
+wget https://wordpress.org/latest.tar.gz && tar -xzvf latest.tar.gz && rm -rf latest.tar.gz
+
+mv $PWD/wordpress $PWD/$appdir
+
+git init
+
+cd $rootdir
+cp -a $PWD/bash/docker/wordpress/. $PWD/apps/$appdir
+
+./bash/ip
+./bash/list
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo " App is installed and ready to run in ./apps/$appdir "
+echo " You can use the above mentioned IP addresses and ports to connect to databases "
+echo " run ./docker/run to start the app container "
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+
+
+
+
+

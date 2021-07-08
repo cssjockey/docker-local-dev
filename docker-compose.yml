@@ -1,0 +1,100 @@
+version: "3"
+
+services:
+  redis:
+    container_name: "${REDIS_CONTAINER_NAME}"
+    image: "redis:alpine"
+    hostname: redis
+    ports:
+      - "${REDIS_PORT}:6379"
+    networks:
+      - docker_services
+
+  pgsql:
+    container_name: "${POSTGRES_CONTAINER_NAME}"
+    image: postgres:13
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./db/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "-q",
+          "-d",
+          "postgres",
+          "-U",
+          "postgres",
+        ]
+    networks:
+      - docker_services
+
+  pgsql_test:
+    container_name: "${POSTGRES_TEST_CONTAINER_NAME}"
+    image: postgres:13
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_TEST_PORT}:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "-q",
+          "-d",
+          "postgres_test",
+          "-U",
+          "postgres",
+        ]
+    networks:
+      - docker_services
+
+  mysql:
+    image: mysql:5.7.32
+    container_name: "${MYSQL_CONTAINER_NAME}"
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_ROOT_PASSWORD: "${MYSQL_PASSWORD}"
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - docker_services
+
+  mysql_test:
+    image: mysql:5.7.32
+    container_name: "${MYSQL_TEST_CONTAINER_NAME}"
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "${MYSQL_TEST_PORT}:3306"
+    environment:
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_DATABASE: "${MYSQL_TEST_DB}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_PASSWORD}"
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - docker_services
+
+networks:
+  docker_services:
+    name: ${NETWORK_NAME}
+    driver: bridge

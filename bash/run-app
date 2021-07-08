@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "Enter the directory name of the app to run:"
+read appname
+if [ ! -d "$PWD/$appname" ] 
+then
+    echo "App directory '$appname' does not exists." 
+    exit 9999 # die with error code 9999
+fi
+
+cd $PWD/apps/$appname
+./docker/run
+./docker/list

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+docker-compose stop -d
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+docker ps -a --format "table {{.Names}}\t{{.Ports}}\t{{.Image}}\t{{.ID}}\t{{.Status}}"
+echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
