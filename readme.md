@@ -56,39 +56,60 @@ This will display the containers information such as local and internal ports in
 ```
 $ ./docker/run
 ```
+This command will ask for the `PORT` number and run the app. You can access the app in browser with either `http://localhost:{PORT}` or `http://0.0.0.0:{PORT}`
 ```
 $ ./docker/stop
 ```
+This command will stop the app container.
 ```
 $ ./docker/restart
 ```
+This command will stop the app and then ask for `PORT` number to start the app again.
 ```
 $ ./docker/artisan <command>
 ```
+This command will run the artisan commands in the container. 
+e.g. 
+`./docker/artisan cache:clear` will clear the cache.
+`./docker/artisan migrate --seed` will migrate and seed the database.
 ```
 $ ./docker/composer <command>
 ```
+This command will run the composer commands in the container. 
+e.g. 
+`./docker/composer require package-name` will install the composer package.
+`./docker/composer install` will install the composer dependencies.
+`./docker/composer update` will update the composer dependencies.
 ```
 $ ./docker/phpunit <args>
 ```
+This command will run phpunit tests in the container.
+ e.g. 
+`./docker/phpunit --filter Example` will run all tests filtered by Example.
 ```
 $ ./docker/bash
 ```
+You can run this command to ssh into the container.
 
 ## Wordpress App Commands
 
 ```
 $ ./docker/run
 ```
+This command will ask for the `PORT` number and run the app. You can access the app in browser with either `http://localhost:{PORT}` or `http://0.0.0.0:{PORT}`
 ```
 $ ./docker/stop
 ```
+This command will stop the app container.
 ```
 $ ./docker/restart
 ```
+This command will stop the app and then ask for `PORT` number to start the app again.
 ```
 $ ./docker/bash
 ```
+You can run this command to ssh into the container.
+
 ## Change log
 
 Please see [change log](changelog.md) for details and a todolist.
