@@ -19,10 +19,55 @@ $ ./bash/laravel
 ```
 $ ./bash/wordpress
 ```
-
 Both commands will ask for `directory name` and install the app under `./apps` folder and initialize a blank repository for the same.
 
 Once installed, you will see the network IP addresses and PORT numbers which you can use to connect to postgres, mysql and redis database.
+
+## Environment Variables
+Following enviornment variables are available in the `.env` file and you are free to change these as per your requirements.
+
+```
+NETWORK_NAME=localdev
+
+REDIS_PORT=7000
+POSTGRES_PORT=7001
+POSTGRES_TEST_PORT=7002
+MYSQL_PORT=7003
+MYSQL_TEST_PORT=7004
+
+REDIS_CONTAINER_NAME=local-redis
+POSTGRES_CONTAINER_NAME=local-postgres
+POSTGRES_TEST_CONTAINER_NAME=local-postgres_test
+MYSQL_CONTAINER_NAME=local-mysql
+MYSQL_TEST_CONTAINER_NAME=local-mysql_test
+
+
+POSTGRES_DB=local_app
+POSTGRES_TEST_DB=app_test
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password
+
+MYSQL_DB=local_app
+MYSQL_TEST_DB=app_test
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+```
+
+__IMPORTANT:__ If you decide to change the `NETWORK_NAME` then you must change all occurances of `localdev` string in following directories:
+
+*For new apps:*
+```
+./bash/docker/laravel
+./bash/docker/wordpress
+```
+*For existing apps:*
+```
+./apps/{app-1-dir}/docker
+./apps/{app-2-dir}/docker
+./apps/{app-3-dir}/docker
+and so on...
+```
+
 
 ## Available root level commands
 
