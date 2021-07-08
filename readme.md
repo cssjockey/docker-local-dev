@@ -169,11 +169,10 @@ If you discover any security related issues, please email admin@cssjockey.com in
 
 ## Credits
 
-- [Mohit Aneja][link-author]
-- [All Contributors][link-contributors]
+- [Mohit Aneja](https://github.com/cssjockey)
+- [All Contributors](https://github.com/customerstack/cs-docker-network/graphs/contributors)
 
 ## License
 
-GNU GPLv3. 
-Please see the [license file](license.md) for more information.
+__MIT__ Please see the [license](license.md) for more information.
 
