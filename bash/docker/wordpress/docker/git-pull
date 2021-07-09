@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-service_name="$(basename -- $PWD)"
-
-docker exec -it $service_name bash -c 'git config --global credential.helper cache; cd $PWD; git pull origin dev; cd $PWD/packages/bridge; git pull origin master;'
-
-

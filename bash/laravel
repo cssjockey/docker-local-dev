@@ -9,18 +9,23 @@ read appdir
 
 ./bash/run
 
-# install laravel installer
-composer global require laravel/installer
-
 # create new laravel app
 mkdir apps
 cd $PWD/apps
-laravel new $appdir
+
+git clone https://github.com/laravel/laravel.git $appdir
+
+cd $appdir
+rm -rf .git
 
 git init
 
 cd $rootdir
+
 cp -a $PWD/bash/docker/laravel/. $PWD/apps/$appdir
+
+cp .env.example .env
+./docker/artisan key:generate
 
 ./bash/ip
 ./bash/list

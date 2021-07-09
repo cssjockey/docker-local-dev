@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 rootdir=$PWD
-
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "Specify directory for this app:"
 # store app dir
