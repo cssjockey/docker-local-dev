@@ -175,7 +175,7 @@ If you discover any security related issues, please email admin@cssjockey.com in
 ## Credits
 
 - [Mohit Aneja](https://github.com/cssjockey)
-- [All Contributors](https://github.com/customerstack/cs-docker-network/graphs/contributors)
+- [All Contributors](https://github.com/cssjockey/docker-local-dev/graphs/contributors)
 
 ## License
 
