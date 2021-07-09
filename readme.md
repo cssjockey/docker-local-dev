@@ -1,10 +1,6 @@
 # Docker network for local development
 
 Clone this repo to setup local environment for Laravel and WordPress development.
-
-## Requirements
-- Composer version 2+
-- wget
 ## Installation
 
 ``` bash
@@ -135,7 +131,11 @@ This command will run phpunit tests in the container.
 ```
 $ ./docker/bash
 ```
-You can run this command to ssh into the container.
+You can run this command to ssh into the app container.
+```
+$ ./docker/exec <command>
+```
+With this command you can run any terminal commands in the app container.
 
 ## Wordpress App Commands
 
@@ -154,7 +154,11 @@ This command will stop the app and then ask for `PORT` number to start the app a
 ```
 $ ./docker/bash
 ```
-You can run this command to ssh into the container.
+You can run this command to ssh into the app container.
+```
+$ ./docker/exec <command>
+```
+With this command you can run any terminal commands in the app container.
 
 ## Change log
 
