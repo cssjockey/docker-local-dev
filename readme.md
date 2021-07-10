@@ -165,9 +165,9 @@ With this command you can run any terminal commands in the app container.
 Please see [change log](changelog.md) for details and a todolist.
 
 ## Todo:
-- Remove the requirements for local `composer` and `wget` for setup.
 - Make it easy to change the `NETWORK_NAME` for existing apps.
 - Include more open source frameworks in the app scaffold.
+
 ## Contributing
 
 Please see [contributing](contributing.md) for details.
